@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    
     [SerializeField] private float _speed = 10f;
     [SerializeField] private float _lifeTime = 3f;
     [SerializeField] private int _damage = 1;
@@ -12,25 +11,15 @@ public class EnemyBullet : MonoBehaviour
     private Rigidbody2D _rb;
     private IEnumerator _lifeTimeRoutine;
     public int heal;
-    public LayerMask whatIsSolid;
-
-    private void Update()
-    {
-        Transform transform1 = transform;
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform1.position, transform1.up, 1, whatIsSolid);
-        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player"))
-
-        {
-            // hitInfo.collider.GetComponent<Player.PlayerHealth>().ApplyHeal(heal);
-            Destroy(gameObject);
-        }
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        //  ZombieHp zombieHp = col.gameObject.GetComponentInParent<ZombieHp>();
-        // zombieHp.ApplyDamage(_damage);
-        Despawn();
+        if (col.gameObject != null && col.gameObject.CompareTag("Player"))
+
+            //  ZombieHp zombieHp = col.gameObject.GetComponentInParent<ZombieHp>();
+            // zombieHp.ApplyDamage(_damage);
+            Despawn();
     }
 
     private void Awake()
@@ -40,7 +29,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnEnable()
     {
-        _rb.velocity = transform.up * _speed;
+        _rb.velocity = transform.up * _speed * -1;
         _lifeTimeRoutine = LifeTimeTimer();
         StartCoroutine(_lifeTimeRoutine);
     }
@@ -65,5 +54,4 @@ public class EnemyBullet : MonoBehaviour
     {
         LeanPool.Despawn(gameObject);
     }
-        
 }

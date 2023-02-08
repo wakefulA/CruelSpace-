@@ -12,25 +12,16 @@ public class PlayerBullet : MonoBehaviour
     private Rigidbody2D _rb;
     private IEnumerator _lifeTimeRoutine;
     public int heal;
-    public LayerMask whatIsSolid;
+   
 
-    private void Update()
-    {
-        Transform transform1 = transform;
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform1.position, transform1.up, 1, whatIsSolid);
-        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Enemy"))
-
-        {
-           // hitInfo.collider.GetComponent<Player.PlayerHealth>().ApplyHeal(heal);
-            Destroy(gameObject);
-        }
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-      //  ZombieHp zombieHp = col.gameObject.GetComponentInParent<ZombieHp>();
-       // zombieHp.ApplyDamage(_damage);
-        Despawn();
+        if (col.gameObject != null && col.gameObject.CompareTag("Enemy"))
+            
+            
+            Despawn();
     }
 
     private void Awake()
@@ -40,7 +31,7 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnEnable()
     {
-        _rb.velocity = transform.up * _speed;
+        _rb.velocity = transform.up * _speed ;
         _lifeTimeRoutine = LifeTimeTimer();
         StartCoroutine(_lifeTimeRoutine);
     }

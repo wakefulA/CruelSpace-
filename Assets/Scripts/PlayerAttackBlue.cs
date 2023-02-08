@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class PlayerAttackBlue : MonoBehaviour
 {
-    
-   // [SerializeField] private PlayerAnimation _playerAnimation;
+    // [SerializeField] private PlayerAnimation _playerAnimation;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletSpawnPointTransform;
     [SerializeField] private float _fireDelay = 0.3f;
@@ -38,11 +37,11 @@ public class PlayerAttackBlue : MonoBehaviour
 
     private void Attack()
     {
-       // _playerAnimation.PlayShoot();
+        // _playerAnimation.PlayShoot();
         LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _bulletRight.rotation);
         LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _bulletCenter.rotation);
         LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _bulletLeft.rotation);
-        
+
         _delayTimer = _fireDelay;
     }
 
@@ -50,5 +49,4 @@ public class PlayerAttackBlue : MonoBehaviour
     {
         _delayTimer -= Time.deltaTime;
     }
-        
 }

@@ -2,8 +2,6 @@
 
 public class MoveSin : MonoBehaviour
 {
-
-
     [SerializeField] private float _amplitude;
     [SerializeField] private float _frequency;
 
