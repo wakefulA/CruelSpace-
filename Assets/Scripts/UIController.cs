@@ -6,10 +6,12 @@ public class UIController : MonoBehaviour
 {
 
    private Pause _pause;
+   private Statistics _statistics;
    
    [SerializeField] private GameObject _pauseScreen;
    [SerializeField] private GameObject _gameWinScreen;
    [SerializeField] private GameObject _gameOverScreen;
+   [SerializeField] private GameObject _hud;
 
    [SerializeField] private Button _pauseBackToGameButton;
    [SerializeField] private Button _pauseExitGameButton;
@@ -17,17 +19,58 @@ public class UIController : MonoBehaviour
    [SerializeField] private Button _gameOverRestartButton;
    [SerializeField] private Button _gameWinExitButton;
    [SerializeField] private Button _gameWinRestartButton;
-
    
    private void Awake()
    {
-      
+      _gameWinScreen.SetActive(false);
+      _gameOverScreen.SetActive(false);
+      _pauseScreen.SetActive(false);
+      _hud.SetActive(true);
+
       _pauseBackToGameButton.onClick.AddListener(OnPauseBackToGameButton);
       _pauseExitGameButton.onClick.AddListener(OnPauseExitGameButton);
       _gameOverExitButton.onClick.AddListener(OnGameOverExitButton);
       _gameOverRestartButton.onClick.AddListener(OnGameOverRestartButton);
       _gameWinExitButton.onClick.AddListener(OnGameWinExitButton);
       _gameWinRestartButton.onClick.AddListener(OnGameWinRestartButton);
+      
+      
+   }
+
+   private void Start()
+   {
+      _pause = FindObjectOfType<Pause>();
+      _pause.OnPaused += Paused;
+      _statistics = FindObjectOfType<Statistics>();
+      _statistics.OnGameOver += GameOver;
+      _statistics.OnGameWinn += GameWin;
+     
+   }
+
+   private void OnDestroy()
+   {
+      _pause.OnPaused -= Paused;
+      _statistics.OnGameOver -= GameOver;
+      _statistics.OnGameWinn -= GameWin;
+   }
+
+   private void Paused(bool IsPaused)
+   {
+      _pauseScreen.SetActive(IsPaused);
+   }
+
+   private void GameWin()
+   {
+      _gameWinScreen.SetActive(true);  
+      _pause.TogglePause();
+   
+   }
+
+   private void GameOver()
+   { 
+      _gameOverScreen.SetActive(true);
+      _pause.TogglePause();
+    
    }
 
    private void OnGameWinRestartButton()
@@ -57,27 +100,12 @@ public class UIController : MonoBehaviour
 
    private void OnPauseBackToGameButton()
    {
-      _innerObject.SetActive(false);
+      _pauseScreen.SetActive(false);
       Time.timeScale = 1f;
    }
    
    
    
-   private void Start()
-   {
-      _pause = FindObjectOfType<Pause>();
-      _pause.OnPaused += Paused;
-   }
 
-   private void OnDestroy()
-   {
-      _pause.OnPaused -= Paused;
-   }
-
-
-   private void Paused(bool IsPaused)
-   {
-      _pauseScreen.SetActive(IsPaused);
-   }
 }
 

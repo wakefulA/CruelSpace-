@@ -10,16 +10,19 @@ public class EnemyBullet : MonoBehaviour
 
     private Rigidbody2D _rb;
     private IEnumerator _lifeTimeRoutine;
-    public int heal;
-    
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject != null && col.gameObject.CompareTag("Player"))
+        if (col.gameObject != null && col.gameObject.CompareTag("Player")) ;
 
-            //  ZombieHp zombieHp = col.gameObject.GetComponentInParent<ZombieHp>();
-            // zombieHp.ApplyDamage(_damage);
-            Despawn();
+        PlayerHP playerHp = col.gameObject.GetComponent<PlayerHP>();
+
+        if (playerHp != null)
+        {
+            playerHp.ApplyDamage(_damage);
+        }
+        
+        
     }
 
     private void Awake()

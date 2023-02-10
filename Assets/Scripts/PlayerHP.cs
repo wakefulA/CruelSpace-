@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerHP : MonoBehaviour
 {
     
-    [SerializeField] public int _startHP;
+    [SerializeField] private int _startHP;
     
 
     public int CurrentHp;
+    
+ 
     
     
     private void Awake()
@@ -17,12 +20,14 @@ public class PlayerHP : MonoBehaviour
     
     public void ApplyDamage(int damage)
     {
-        CurrentHp -= damage;
+        CurrentHp = CurrentHp - damage;
         
         if (CurrentHp <= 0)
         {
             Destroy(gameObject);
         }
+        
+        
 
     }
         
