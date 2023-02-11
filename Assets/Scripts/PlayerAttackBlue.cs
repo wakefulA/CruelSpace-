@@ -12,6 +12,8 @@ public class PlayerAttackBlue : MonoBehaviour
     [SerializeField] private Transform _bulletLeft;
     [SerializeField] private Transform _bulletCenter;
 
+    [SerializeField] private AudioPlayer _audioPlayer;
+
     private Transform _cachedTransform;
     private float _delayTimer;
 
@@ -37,12 +39,15 @@ public class PlayerAttackBlue : MonoBehaviour
 
     private void Attack()
     {
+        
         // _playerAnimation.PlayShoot();
         LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _bulletRight.rotation);
         LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _bulletCenter.rotation);
         LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _bulletLeft.rotation);
 
         _delayTimer = _fireDelay;
+        
+        _audioPlayer.AddTheSoundOfAGunshotClip();
     }
 
     private void TickTimer()

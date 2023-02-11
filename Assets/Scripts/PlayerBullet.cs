@@ -11,17 +11,23 @@ public class PlayerBullet : MonoBehaviour
 
     private Rigidbody2D _rb;
     private IEnumerator _lifeTimeRoutine;
-    public int heal;
-   
 
-    
+    [SerializeField] AudioPlayer _audioPlayer;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject != null && col.gameObject.CompareTag("Enemy"))
-            
-            
-            Despawn();
+        _audioPlayer = FindObjectOfType<AudioPlayer>();
+        
+        if (col.gameObject != null && col.gameObject.CompareTag("Enemy")) ;
+
+        EnemyHP enemyHp = col.gameObject.GetComponent<EnemyHP>();
+
+        if (enemyHp != null)
+        {
+            enemyHp.ApplyDamage(_damage);
+        }
+        
+        
     }
 
     private void Awake()
@@ -31,7 +37,7 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnEnable()
     {
-        _rb.velocity = transform.up * _speed ;
+        _rb.velocity = transform.up * _speed;
         _lifeTimeRoutine = LifeTimeTimer();
         StartCoroutine(_lifeTimeRoutine);
     }
@@ -48,11 +54,12 @@ public class PlayerBullet : MonoBehaviour
     IEnumerator LifeTimeTimer()
     {
         yield return new WaitForSeconds(_lifeTime);
+       // Destroy(gameObject);
 
         Despawn();
     }
 
-    private void Despawn()
+    public void Despawn()
     {
         LeanPool.Despawn(gameObject);
     }
