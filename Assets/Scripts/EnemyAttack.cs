@@ -7,8 +7,8 @@ public class EnemyAttack : MonoBehaviour
     
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletSpawnPointTransform;
-    [SerializeField] private float _currentTimeSpawn = 0.3f;
-    [SerializeField] private float _startTimeSpawn = 3f;
+    [SerializeField] private float _currentTimeSpawn; //= 0.3f;
+    [SerializeField] private float _startTimeSpawn; //= 3f;
 
     
     private Transform _cachedTransform;

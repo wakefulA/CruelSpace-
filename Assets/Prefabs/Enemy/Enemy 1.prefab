@@ -63,7 +63,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106784949500471576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 5.31, z: 0}
+  m_LocalPosition: {x: -0.16, y: 5.45, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -198,11 +198,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.044792395, y: -2.4507878}
-  m_Size: {x: 3.9548576, y: 4.738637}
+  m_Offset: {x: 0.071238674, y: -2.6807423}
+  m_Size: {x: 2.6582804, y: 3.6368313}
   m_Direction: 0
 --- !u!114 &1491845922
 MonoBehaviour:
@@ -270,8 +270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 1727.2}
-  m_SizeDelta: {x: 521.3, y: 59.6}
+  m_AnchoredPosition: {x: -10, y: 1706}
+  m_SizeDelta: {x: 520, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2840987643979305490
 CanvasRenderer:
@@ -461,7 +461,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00032973, y: 0}
-  m_SizeDelta: {x: 527.26, y: 100}
+  m_SizeDelta: {x: 520, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5378545110753620257
 CanvasRenderer:
