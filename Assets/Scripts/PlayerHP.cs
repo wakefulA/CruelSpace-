@@ -8,6 +8,9 @@ public class PlayerHP : MonoBehaviour
     private UIController _uiController;
 
     public int CurrentHp;
+    
+    
+    public event Action<int> OnHPChange; 
 
     private void Awake()
     {
@@ -28,5 +31,7 @@ public class PlayerHP : MonoBehaviour
             _uiController.GameOver();
             Destroy(gameObject);
         }
+        
+        OnHPChange?.Invoke(CurrentHp);
     }
 }

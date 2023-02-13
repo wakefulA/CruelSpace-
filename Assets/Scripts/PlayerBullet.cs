@@ -7,7 +7,7 @@ public class PlayerBullet : MonoBehaviour
 {
     [SerializeField] private float _speed = 10f;
     [SerializeField] private float _lifeTime = 3f;
-    [SerializeField] private int _damage = 1;
+    [SerializeField] public int _damage = 1;
 
     private Rigidbody2D _rb;
     private IEnumerator _lifeTimeRoutine;

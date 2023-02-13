@@ -5,9 +5,8 @@ public class EnemyHP : MonoBehaviour
 
 {
     [SerializeField] public int _startHP;
-
+    private Ulta _ulta;
     public GameObject HealthBar;
-
     public event Action<int> OnHpChanged;
 
     private Statistics _statistics;
@@ -22,6 +21,14 @@ public class EnemyHP : MonoBehaviour
     private void Start()
     {
         _statistics = FindObjectOfType<Statistics>();
+
+        _ulta = FindObjectOfType<Ulta>();
+        _ulta._enemyAll.Add(this);
+    }
+
+    private void OnDestroy()
+    {
+        _ulta._enemyAll.Remove(this);
     }
 
     public void ApplyDamage(int damage)
@@ -33,6 +40,8 @@ public class EnemyHP : MonoBehaviour
             _statistics.ChangeScore(_startHP);
             Destroy(gameObject);
         }
+
         OnHpChanged?.Invoke(CurrentHp);
+        _ulta.AddPecent(5);
     }
 }

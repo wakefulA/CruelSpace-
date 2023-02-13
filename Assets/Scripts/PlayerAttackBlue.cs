@@ -1,4 +1,5 @@
-﻿using Lean.Pool;
+﻿using System;
+using Lean.Pool;
 using UnityEngine;
 
 public class PlayerAttackBlue : MonoBehaviour
@@ -16,10 +17,16 @@ public class PlayerAttackBlue : MonoBehaviour
 
     private Transform _cachedTransform;
     private float _delayTimer;
+    private Ulta _ulta;
 
     private void Awake()
     {
         _cachedTransform = transform;
+    }
+
+    private void Start()
+    {
+        _ulta = FindObjectOfType<Ulta>();
     }
 
     private void Update()
@@ -30,6 +37,17 @@ public class PlayerAttackBlue : MonoBehaviour
         }
 
         TickTimer();
+
+        if (Input.GetButton("Fire2"))
+        {
+            Ulta();
+        }
+    }
+
+    private void Ulta()
+    {
+        PlayerBullet playerBullet = _bulletPrefab.GetComponent<PlayerBullet>();
+        _ulta.Ultra(playerBullet._damage);
     }
 
     private bool CanAttack()
