@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
 {
     private Pause _pause;
     private Statistics _statistics;
+    private AudioPlayer _audioPlayer;
 
     [SerializeField] private SceneLoadingService _sceneLoadingService;
 
@@ -20,6 +21,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private Button _gameOverRestartButton;
     [SerializeField] private Button _gameWinExitButton;
     [SerializeField] private Button _gameWinRestartButton;
+    [SerializeField] private Button _audioOnButton;
+    [SerializeField] private Button _audioOffButton;
+    
 
     private void Awake()
     {
@@ -34,6 +38,8 @@ public class UIController : MonoBehaviour
         _gameOverRestartButton.onClick.AddListener(OnGameOverRestartButton);
         _gameWinExitButton.onClick.AddListener(OnGameWinExitButton);
         _gameWinRestartButton.onClick.AddListener(OnGameWinRestartButton);
+        _audioOnButton.onClick.AddListener(AudioOnButton);
+        _audioOffButton.onClick.AddListener(AudioOffButton);
     }
 
     private void Start()
@@ -41,8 +47,20 @@ public class UIController : MonoBehaviour
         _pause = FindObjectOfType<Pause>();
         _pause.OnPaused += Paused;
         _statistics = FindObjectOfType<Statistics>();
-        _statistics.OnGameOver += GameOver;
-        _statistics.OnGameWinn += GameWin;
+    
+        _audioPlayer = FindObjectOfType<AudioPlayer>();
+       _statistics.OnGameOver += GameOver;
+       _statistics.OnGameWinn += GameWin;
+    }
+
+    private void AudioOnButton()
+    {
+        _audioPlayer.Off = false;
+    }
+
+    private void AudioOffButton()
+    {
+        _audioPlayer.Off = true;
     }
 
     private void OnDestroy()
@@ -68,6 +86,8 @@ public class UIController : MonoBehaviour
         _gameOverScreen.SetActive(true);
         _pause.TogglePause();
     }
+    
+    
 
     private void OnGameWinRestartButton()
     {
