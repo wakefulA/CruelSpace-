@@ -1,11 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-public class EnemyHP : MonoBehaviour
+public class EnemyHp : MonoBehaviour
 
 {
     [SerializeField] public int _startHP;
-    private Ulta _ulta;
+    private SpecialForces _specialForces;
+
     public GameObject HealthBar;
     public event Action<int> OnHpChanged;
 
@@ -22,13 +23,13 @@ public class EnemyHP : MonoBehaviour
     {
         _statistics = FindObjectOfType<Statistics>();
 
-        _ulta = FindObjectOfType<Ulta>();
-        _ulta._enemyAll.Add(this);
+        _specialForces = FindObjectOfType<SpecialForces>();
+        _specialForces._enemyAll.Add(this);
     }
 
     private void OnDestroy()
     {
-        _ulta._enemyAll.Remove(this);
+        _specialForces._enemyAll.Remove(this);
     }
 
     public void ApplyDamage(int damage)
@@ -42,6 +43,6 @@ public class EnemyHP : MonoBehaviour
         }
 
         OnHpChanged?.Invoke(CurrentHp);
-        _ulta.AddPecent(5);
+        _specialForces.AddPecent(5);
     }
 }

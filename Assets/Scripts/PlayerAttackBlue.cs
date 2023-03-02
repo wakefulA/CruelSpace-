@@ -17,7 +17,7 @@ public class PlayerAttackBlue : MonoBehaviour
 
     private Transform _cachedTransform;
     private float _delayTimer;
-    private Ulta _ulta;
+    private SpecialForces _specialForces;
 
     private void Awake()
     {
@@ -26,17 +26,18 @@ public class PlayerAttackBlue : MonoBehaviour
 
     private void Start()
     {
-        _ulta = FindObjectOfType<Ulta>();
+        _specialForces = FindObjectOfType<SpecialForces>();
     }
 
     private void Update()
     {
+        TickTimer();
+        
         if (CanAttack())
         {
             Attack();
         }
-
-        TickTimer();
+        
 
         if (Input.GetButton("Fire2"))
         {
@@ -46,8 +47,8 @@ public class PlayerAttackBlue : MonoBehaviour
 
     private void Ulta()
     {
-        PlayerBullet playerBullet = _bulletPrefab.GetComponent<PlayerBullet>();
-        _ulta.Ultra(playerBullet._damage);
+        Bullet _bullet = _bulletPrefab.GetComponent<Bullet>();
+        _specialForces.Ultra(_bullet._damage);
     }
 
     private bool CanAttack()

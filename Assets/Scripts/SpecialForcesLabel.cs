@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class UltaLabel : MonoBehaviour
+public class SpecialForcesLabel : MonoBehaviour
 {
     private TextMeshProUGUI _ultaPercentLabel;
     private SpecialForces _specialForces;

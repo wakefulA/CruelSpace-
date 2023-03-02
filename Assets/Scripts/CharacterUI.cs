@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
 public class CharacterUI : MonoBehaviour
 {
-    [SerializeField] private HPBar _hpBar;
+    [SerializeField] private HpBar _hpBar;
 
-    [SerializeField] private EnemyHP _enemyHp;
+    [SerializeField] private EnemyHp _enemyHp;
 
     private void Awake()
     {

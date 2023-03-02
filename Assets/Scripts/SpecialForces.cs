@@ -2,29 +2,29 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ulta : MonoBehaviour
+public class SpecialForces : MonoBehaviour
 {
     public List<EnemyHp> _enemyAll;
 
-    public int UltaPecent;
+    public int UltaPercent;
 
     public event Action<int> OnUltaPercentChoose;
 
     public void AddPecent(int percent)
     {
-        UltaPecent += percent;
-        OnUltaPercentChoose?.Invoke(UltaPecent);
+        UltaPercent += percent;
+        OnUltaPercentChoose?.Invoke(UltaPercent);
     }
 
     public void Ultra(int damage)
     {
-        if (UltaPecent < 100)
+        if (UltaPercent < 100)
         {
             return;
         }
 
-        UltaPecent -= 100;
-        OnUltaPercentChoose?.Invoke(UltaPecent);
+        UltaPercent -= 100;
+        OnUltaPercentChoose?.Invoke(UltaPercent);
 
         int ultadamage = damage * 3;
 

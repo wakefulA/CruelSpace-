@@ -521,7 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 150262481}
   _audioClip: {fileID: 8300000, guid: 44d28d1e8fe90d040873cfb22fb1787b, type: 3}
-  Off: 0
+  soundOff: 0
 --- !u!4 &150262483
 Transform:
   m_ObjectHideFlags: 0
@@ -2490,7 +2490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fc479ccc7bca9449fc453f39dc66da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 100
+  Points: 0
 --- !u!4 &970956068
 Transform:
   m_ObjectHideFlags: 0
@@ -4536,7 +4536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyAll: []
-  UltaPecent: 0
+  UltaPercent: 0
 --- !u!4 &2038387453
 Transform:
   m_ObjectHideFlags: 0

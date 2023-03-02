@@ -1,8 +1,6 @@
-
-using DefaultNamespace;
 using UnityEngine;
 
-public class CheckWall : MonoBehaviour
+public class LocationObjectDestruction : MonoBehaviour
 {
    private void OnTriggerEnter2D(Collider2D col)
    {

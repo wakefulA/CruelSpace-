@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HPBar : MonoBehaviour
+public class HpBar : MonoBehaviour
 {
     [SerializeField] private Image _fillImage;
 

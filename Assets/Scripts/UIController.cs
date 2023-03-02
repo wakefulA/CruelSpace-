@@ -55,12 +55,12 @@ public class UIController : MonoBehaviour
 
     private void AudioOnButton()
     {
-        _audioPlayer.Off = false;
+        _audioPlayer.soundOff = false;
     }
 
     private void AudioOffButton()
     {
-        _audioPlayer.Off = true;
+        _audioPlayer.soundOff = true;
     }
 
     private void OnDestroy()
@@ -75,7 +75,7 @@ public class UIController : MonoBehaviour
         _pauseScreen.SetActive(IsPaused);
     }
 
-    private void GameWin()
+    public void GameWin()
     {
         _gameWinScreen.SetActive(true);
         _pause.TogglePause();
