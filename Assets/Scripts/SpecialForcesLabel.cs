@@ -4,7 +4,7 @@ using UnityEngine;
 public class UltaLabel : MonoBehaviour
 {
     private TextMeshProUGUI _ultaPercentLabel;
-    private Ulta _ulta;
+    private SpecialForces _specialForces;
     private void Awake()
     {
         _ultaPercentLabel = GetComponent<TextMeshProUGUI>();
@@ -12,8 +12,8 @@ public class UltaLabel : MonoBehaviour
 
     private void Start()
     {
-        _ulta = FindObjectOfType<Ulta>();
-        _ulta.OnUltaPercentChoose += ChangeScore;
+        _specialForces = FindObjectOfType<SpecialForces>();
+        _specialForces.OnUltaPercentChoose += ChangeScore;
     }
 
     private void ChangeScore(int percent)

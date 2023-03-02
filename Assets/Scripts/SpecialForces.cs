@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ulta : MonoBehaviour
 {
-    public List<EnemyHP> _enemyAll;
+    public List<EnemyHp> _enemyAll;
 
     public int UltaPecent;
 
