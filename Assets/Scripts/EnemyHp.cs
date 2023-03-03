@@ -22,15 +22,9 @@ public class EnemyHp : MonoBehaviour
     private void Start()
     {
         _statistics = FindObjectOfType<Statistics>();
-
         _specialForces = FindObjectOfType<SpecialForces>();
-        _specialForces._enemyAll.Add(this);
     }
-
-    private void OnDestroy()
-    {
-        _specialForces._enemyAll.Remove(this);
-    }
+    
 
     public void ApplyDamage(int damage)
     {
@@ -43,6 +37,6 @@ public class EnemyHp : MonoBehaviour
         }
 
         OnHpChanged?.Invoke(CurrentHp);
-        _specialForces.AddPecent(5);
+        _specialForces.AddPercent(5);
     }
 }

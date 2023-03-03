@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpecialForces : MonoBehaviour
 {
-    public List<EnemyHp> _enemyAll;
+    public List<EnemyFacade> _enemyAll;
 
     public int UltaPercent;
 
     public event Action<int> OnUltaPercentChoose;
 
-    public void AddPecent(int percent)
+    public void AddPercent(int percent)
     {
         UltaPercent += percent;
         OnUltaPercentChoose?.Invoke(UltaPercent);

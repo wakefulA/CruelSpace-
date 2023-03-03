@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MoveSin : MonoBehaviour
+public class EnemyMoveSin : MonoBehaviour
 {
     [SerializeField] private float _amplitude;
     [SerializeField] private float _frequency;

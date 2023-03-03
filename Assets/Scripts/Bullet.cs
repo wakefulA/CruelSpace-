@@ -36,11 +36,11 @@ public class Bullet : MonoBehaviour
 
             //if (col.gameObject != null && col.gameObject.CompareTag("Player")) ;
             {
-                PlayerHp playerHp = col.gameObject.GetComponentInParent<PlayerHp>();
+                PlayerFaсade playerFacade = col.gameObject.GetComponentInParent<PlayerFaсade>();
 
-                if (playerHp != null)
+                if (playerFacade != null)
                 {
-                    playerHp.ApplyDamage(_damage);
+                    playerFacade.ApplyDamage(_damage);
                 }
             }
         }
@@ -50,11 +50,11 @@ public class Bullet : MonoBehaviour
             if (col.CompareTag(Tag.Enemy))
            // if (col.gameObject != null && col.gameObject.CompareTag("Enemy")) ;
             {
-                EnemyHp enemyHp = col.gameObject.GetComponentInParent<EnemyHp>();
+                EnemyFacade enemyFacade = col.gameObject.GetComponentInParent<EnemyFacade>();
 
-                if (enemyHp != null)
+                if (enemyFacade != null)
                 {
-                    enemyHp.ApplyDamage(_damage);
+                    enemyFacade.ApplyDamage(_damage);
                 }
             }
         }
