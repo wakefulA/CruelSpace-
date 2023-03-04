@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 StartPadSize { get; private set; }
 
     public Pause _Pause;
+
+    private void Start()
+    {
+        _Pause = FindObjectOfType<Pause>();
+    }
 
     private void Update()
     {

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,117 +6,61 @@ public class UIController : MonoBehaviour
     private Pause _pause;
     private Statistics _statistics;
     private AudioPlayer _audioPlayer;
-
-    [SerializeField] private SceneLoadingService _sceneLoadingService;
-
-    [SerializeField] private GameObject _pauseScreen;
-    [SerializeField] private GameObject _gameWinScreen;
-    [SerializeField] private GameObject _gameOverScreen;
-    [SerializeField] private GameObject _hud;
-
-    [SerializeField] private Button _pauseBackToGameButton;
-    [SerializeField] private Button _pauseExitGameButton;
-    [SerializeField] private Button _gameOverExitButton;
-    [SerializeField] private Button _gameOverRestartButton;
-    [SerializeField] private Button _gameWinExitButton;
-    [SerializeField] private Button _gameWinRestartButton;
-    [SerializeField] private Button _audioOnButton;
-    [SerializeField] private Button _audioOffButton;
     
 
-    private void Awake()
-    {
-        _gameWinScreen.SetActive(false);
-        _gameOverScreen.SetActive(false);
-        _pauseScreen.SetActive(false);
-        _hud.SetActive(true);
+    [SerializeField] private Button _playerRed;
+    [SerializeField] private Button _playerBlue;
+    
 
-        _pauseBackToGameButton.onClick.AddListener(OnPauseBackToGameButton);
-        _pauseExitGameButton.onClick.AddListener(OnPauseExitGameButton);
-        _gameOverExitButton.onClick.AddListener(OnGameOverExitButton);
-        _gameOverRestartButton.onClick.AddListener(OnGameOverRestartButton);
-        _gameWinExitButton.onClick.AddListener(OnGameWinExitButton);
-        _gameWinRestartButton.onClick.AddListener(OnGameWinRestartButton);
-        _audioOnButton.onClick.AddListener(AudioOnButton);
-        _audioOffButton.onClick.AddListener(AudioOffButton);
+    [SerializeField] private GameObject _playerPrefabRed;
+    [SerializeField] private GameObject _playerPrefabBlue;
+    [SerializeField] private GameObject _spawnPlayer;
+    [SerializeField] private GameObject _hud;
+    [SerializeField] private GameObject _playerImage;
+    
+    [SerializeField] private GameOverService _gameOverService;
+
+    private void Awake()
+    
+    {
+        _hud.SetActive(false); /// false
+        _playerImage.SetActive(true);
+        _playerRed.onClick.AddListener(PlayerRedOne);
+        _playerBlue.onClick.AddListener(PlayerBlueTwo);
+      
     }
 
     private void Start()
     {
         _pause = FindObjectOfType<Pause>();
-        _pause.OnPaused += Paused;
         _statistics = FindObjectOfType<Statistics>();
-    
         _audioPlayer = FindObjectOfType<AudioPlayer>();
-       _statistics.OnGameOver += GameOver;
-       _statistics.OnGameWinn += GameWin;
+        Time.timeScale = 0;
     }
 
-    private void AudioOnButton()
+    private void PlayerBlueTwo()
     {
-        _audioPlayer.soundOff = false;
+        Instantiate(_playerPrefabBlue, _spawnPlayer.transform.position, Quaternion.identity);
+        GameOn();
     }
 
-    private void AudioOffButton()
+    private void PlayerRedOne()
     {
-        _audioPlayer.soundOff = true;
-    }
-
-    private void OnDestroy()
-    {
-        _pause.OnPaused -= Paused;
-        _statistics.OnGameOver -= GameOver;
-        _statistics.OnGameWinn -= GameWin;
-    }
-
-    private void Paused(bool IsPaused)
-    {
-        _pauseScreen.SetActive(IsPaused);
-    }
-
-    public void GameWin()
-    {
-        _gameWinScreen.SetActive(true);
-        _pause.TogglePause();
+        Instantiate(_playerPrefabRed, _spawnPlayer.transform.position, Quaternion.identity);
+        GameOn();
     }
 
     public void GameOver()
     {
-        _gameOverScreen.SetActive(true);
-        _pause.TogglePause();
-    }
-    
-    
-
-    private void OnGameWinRestartButton()
-    {
-       
+        _hud.SetActive(false);
+        Time.timeScale = 0f;
+        _gameOverService.GameOver();
     }
 
-    private void OnGameWinExitButton()
+    private void GameOn()
     {
-        throw new NotImplementedException();
-    }
-
-    private void OnGameOverRestartButton()
-    {
-        _pause.TogglePause();
-        _sceneLoadingService.ReLoadScene();
-
-    }
-
-    private void OnGameOverExitButton()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void OnPauseExitGameButton()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void OnPauseBackToGameButton()
-    {
-        _pause.TogglePause();
+        _playerImage.SetActive(false);
+        _hud.SetActive(true);
+        Time.timeScale = 1;
     }
 }
