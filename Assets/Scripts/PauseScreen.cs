@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseScreenService : MonoBehaviour
+public class PauseScreen : MonoBehaviour
 {
     private Pause _pause;
     private AudioPlayer _audioPlayer;

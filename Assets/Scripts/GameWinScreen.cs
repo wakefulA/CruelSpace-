@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameWinService : MonoBehaviour
+public class GameWinScreen : MonoBehaviour
 {
     private Pause _pause;
     private Statistics _statistics;

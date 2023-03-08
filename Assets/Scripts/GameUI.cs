@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
+public class GameUI : MonoBehaviour
 {
     private Pause _pause;
     private Statistics _statistics;
@@ -18,7 +18,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _playerImage;
     
-    [SerializeField] private GameOverService _gameOverService;
+    [SerializeField] private GameOverScreen gameOverScreen;
 
     private void Awake()
     
@@ -54,7 +54,7 @@ public class UIController : MonoBehaviour
     {
         _hud.SetActive(false);
         Time.timeScale = 0f;
-        _gameOverService.GameOver();
+        gameOverScreen.GameOver();
     }
 
     private void GameOn()

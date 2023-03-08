@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOverService : MonoBehaviour
+public class GameOverScreen : MonoBehaviour
 {
     private Pause _pause;
     private Statistics _statistics;
