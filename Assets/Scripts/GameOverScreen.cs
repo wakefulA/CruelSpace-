@@ -10,7 +10,9 @@ public class GameOverScreen : MonoBehaviour
     
     
     [SerializeField] private GameObject _gameOverLabel;
-    [SerializeField] private GameObject _hud;
+    //[SerializeField] private GameObject _hud;
+
+    [SerializeField] private GameUI _gameUI;
     
     [SerializeField] private Button _gameOverExitButton;
     [SerializeField] private Button _gameOverRestartButton;
@@ -32,9 +34,10 @@ public class GameOverScreen : MonoBehaviour
 
     public void GameOver()
     {
-        _hud.SetActive(false);
+        //_hud.SetActive(false);
         _gameOverLabel.SetActive(true);
        _pause.TogglePause();
+       _gameUI.ToggleHud();
     }
 
     private void OnGameOverRestartButton()

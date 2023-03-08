@@ -4466,7 +4466,7 @@ MonoBehaviour:
   _spawnPlayer: {fileID: 901176706}
   _hud: {fileID: 2118192941}
   _playerImage: {fileID: 1447162187}
-  _gameOverService: {fileID: 1870556243}
+  gameOverScreen: {fileID: 1870556243}
 --- !u!114 &1870556238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4583,7 +4583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameOverLabel: {fileID: 1975767963}
-  _hud: {fileID: 2118192941}
+  _gameUI: {fileID: 1870556237}
   _gameOverExitButton: {fileID: 673727308}
   _gameOverRestartButton: {fileID: 90002969}
 --- !u!114 &1870556244

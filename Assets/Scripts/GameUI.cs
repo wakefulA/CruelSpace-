@@ -6,6 +6,8 @@ public class GameUI : MonoBehaviour
     private Pause _pause;
     private Statistics _statistics;
     private AudioPlayer _audioPlayer;
+
+    private bool _isHudActive;
     
 
     [SerializeField] private Button _playerRed;
@@ -38,6 +40,12 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void ToggleHud()
+    {
+        _isHudActive = !_isHudActive;
+        _hud.SetActive(_isHudActive);
+    }
+
     private void PlayerBlueTwo()
     {
         Instantiate(_playerPrefabBlue, _spawnPlayer.transform.position, Quaternion.identity);
@@ -50,17 +58,17 @@ public class GameUI : MonoBehaviour
         GameOn();
     }
 
-    public void GameOver()
-    {
-        _hud.SetActive(false);
-        Time.timeScale = 0f;
-        gameOverScreen.GameOver();
-    }
+   // public void GameOver()
+    //{
+     //   _hud.SetActive(false);
+     //   Time.timeScale = 0f;
+     //   gameOverScreen.GameOver();
+    //}
 
     private void GameOn()
-    {
+   {
         _playerImage.SetActive(false);
-        _hud.SetActive(true);
-        Time.timeScale = 1;
+       _hud.SetActive(true);
+       Time.timeScale = 1;
     }
 }
