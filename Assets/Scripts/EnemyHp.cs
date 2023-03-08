@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class EnemyHp : MonoBehaviour
+public class EnemyHp : MonoBehaviour, IHp
 
 {
     [SerializeField] public int _startHP;

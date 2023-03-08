@@ -30,31 +30,30 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (_isEnemyBullet)
+        if (_isEnemyBullet && col.gameObject.CompareTag(Tag.Player))
         {
-            if (col.CompareTag(Tag.Player))
+            //if (col.CompareTag(Tag.Player))
 
             //if (col.gameObject != null && col.gameObject.CompareTag("Player")) ;
             {
-                PlayerFaсade playerFacade = col.gameObject.GetComponentInParent<PlayerFaсade>();
+                IHp ihp = col.gameObject.GetComponentInParent<IHp>();
 
-                if (playerFacade != null)
+                if (ihp != null)
                 {
-                    playerFacade.ApplyDamage(_damage);
+                    ihp.ApplyDamage(_damage);
                 }
             }
         }
-
-        else
+        if (!_isEnemyBullet && col.CompareTag(Tag.Enemy))
+            
         {
-            if (col.CompareTag(Tag.Enemy))
-           // if (col.gameObject != null && col.gameObject.CompareTag("Enemy")) ;
+            // if (col.gameObject != null && col.gameObject.CompareTag("Enemy")) ;
             {
-                EnemyFacade enemyFacade = col.gameObject.GetComponentInParent<EnemyFacade>();
+                IHp ihp = col.gameObject.GetComponentInParent<IHp>();
 
-                if (enemyFacade != null)
+                if (ihp != null)
                 {
-                    enemyFacade.ApplyDamage(_damage);
+                    ihp.ApplyDamage(_damage);
                 }
             }
         }
