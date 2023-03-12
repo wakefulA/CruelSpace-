@@ -5,7 +5,7 @@ public class PlayerHp : MonoBehaviour, IHp
 {
     [SerializeField] private int _startHP;
 
-     private GameUI _gameUI;
+     private GameUi _gameUI;
 
     private GameOverScreen _gameOverScreen;
 
@@ -23,7 +23,7 @@ public class PlayerHp : MonoBehaviour, IHp
     {
         _gameOverScreen = FindObjectOfType<GameOverScreen>();
         OnHPChange?.Invoke(CurrentHp);
-        //_gameUI = FindObjectOfType<GameUI>();
+        //_gameUI = FindObjectOfType<GameUi>();
     }
 
     public void ApplyDamage(int damage)

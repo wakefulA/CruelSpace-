@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a734951749a1b40a60fd81cff50610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statistics: {fileID: 970956067}
 --- !u!1 &61691833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,6 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a734951749a1b40a60fd81cff50610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statistics: {fileID: 970956067}
 --- !u!1 &717282473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2502,6 +2504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a734951749a1b40a60fd81cff50610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statistics: {fileID: 970956067}
 --- !u!1 &975890490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,6 +2556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a734951749a1b40a60fd81cff50610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statistics: {fileID: 970956067}
 --- !u!114 &975890493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2686,8 +2690,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 665, y: -437}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 600, y: -437}
+  m_SizeDelta: {x: 286.36, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1155348378
 MonoBehaviour:
@@ -2709,7 +2713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ulta Pecent
+  m_text: Special Forces
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2798,6 +2802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fb2964259f4558b9e752f07e64c301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _specialForces: {fileID: 2038387452}
 --- !u!1 &1175011345
 GameObject:
   m_ObjectHideFlags: 0
@@ -4461,12 +4466,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerRed: {fileID: 1427668139}
   _playerBlue: {fileID: 1319956686}
+  _pauseService: {fileID: 202553306}
+  _statisticsService: {fileID: 970956067}
   _playerPrefabRed: {fileID: 2309182567884222157, guid: b2f021631493321479efc7de2a681f8e, type: 3}
   _playerPrefabBlue: {fileID: 3612132305291161507, guid: e059da7974d49d74aa68d108e964ffd8, type: 3}
   _spawnPlayer: {fileID: 901176706}
   _hud: {fileID: 2118192941}
   _playerImage: {fileID: 1447162187}
-  gameOverScreen: {fileID: 1870556243}
 --- !u!114 &1870556238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4565,6 +4571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0bcde3574e4a27aaa7e1411b993cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseService: {fileID: 202553306}
   _pauseScreen: {fileID: 899407040}
   _pauseBackToGameButton: {fileID: 272108038}
   _pauseExitGameButton: {fileID: 1402244159}
@@ -4598,8 +4605,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff357da5eef42a49892a3da33288cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pause: {fileID: 202553306}
+  _statistics: {fileID: 970956067}
   _gameWinLabel: {fileID: 717282473}
-  _hud: {fileID: 2118192941}
   _gameWinExitButton: {fileID: 61691837}
   _gameWinRestartButton: {fileID: 1971864908}
 --- !u!1 &1943734615
@@ -4631,6 +4639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45b5ebcb912946cd9863e23991130cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameWinScreen: {fileID: 1870556244}
   _enemy1: {fileID: 2106784949500471576, guid: e133700c9ceea914d99a10f36ab431aa, type: 3}
   _enemy2: {fileID: 0}
   _enemy3: {fileID: 0}
@@ -4825,7 +4834,7 @@ GameObject:
   - component: {fileID: 2038387453}
   - component: {fileID: 2038387452}
   m_Layer: 0
-  m_Name: Ulta
+  m_Name: SpecialForces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4875,7 +4884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2118192942
 RectTransform:
   m_ObjectHideFlags: 0

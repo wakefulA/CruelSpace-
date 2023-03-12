@@ -5,38 +5,26 @@ using UnityEngine.UI;
 
 public class GameWinScreen : MonoBehaviour
 {
-    private Pause _pause;
-    private Statistics _statistics;
-    
-
+    [Header("Service")]
+    [SerializeField] private Pause _pause;
+    [SerializeField] private Statistics _statistics;
+    [Header("GO")]
     [SerializeField] private GameObject _gameWinLabel;
-
-    [SerializeField] private GameObject _hud;
-
+    [Header("Buttons")]
     [SerializeField] private Button _gameWinExitButton;
     [SerializeField] private Button _gameWinRestartButton;
 
     private void Awake()
     {
-        //_gameWinScreen.SetActive(false);
         _gameWinLabel.SetActive(false);
-
-        _hud.SetActive(true);
-
         _gameWinExitButton.onClick.AddListener(OnGameWinExitButton);
         _gameWinRestartButton.onClick.AddListener(OnGameWinRestartButton);
     }
 
-    private void Start()
-    {
-        _pause = FindObjectOfType<Pause>();
-        _statistics = FindObjectOfType<Statistics>();
-    }
-
     private void GameWin()
     {
-        //_gameWinScreen.SetActive(true);
-        _pause.TogglePause();
+        _gameWinLabel.SetActive(true);
+        //_pause.TogglePause();
     }
 
     private void OnGameWinRestartButton()

@@ -4,7 +4,9 @@ using UnityEngine;
 public class SpecialForcesLabel : MonoBehaviour
 {
     private TextMeshProUGUI _ultaPercentLabel;
-    private SpecialForces _specialForces;
+
+    [SerializeField] private SpecialForces _specialForces;
+
     private void Awake()
     {
         _ultaPercentLabel = GetComponent<TextMeshProUGUI>();
@@ -12,12 +14,11 @@ public class SpecialForcesLabel : MonoBehaviour
 
     private void Start()
     {
-        _specialForces = FindObjectOfType<SpecialForces>();
         _specialForces.OnUltaPercentChoose += ChangeScore;
     }
 
     private void ChangeScore(int percent)
     {
-        _ultaPercentLabel.text = $"ULTA GO: {percent} %";
+        _ultaPercentLabel.text = $"Special Forces: {percent} %";
     }
 }

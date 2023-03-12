@@ -12,7 +12,7 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private GameObject _gameOverLabel;
     //[SerializeField] private GameObject _hud;
 
-    [SerializeField] private GameUI _gameUI;
+    [SerializeField] private GameUi _gameUI;
     
     [SerializeField] private Button _gameOverExitButton;
     [SerializeField] private Button _gameOverRestartButton;

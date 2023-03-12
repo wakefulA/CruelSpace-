@@ -3,15 +3,15 @@ using UnityEngine.UI;
 
 public class PauseScreen : MonoBehaviour
 {
-    private Pause _pause;
     private AudioPlayer _audioPlayer;
 
+    [Header("Service")]
+    [SerializeField] private Pause _pauseService;
+    [Header("GO")]
     [SerializeField] private GameObject _pauseScreen;
-   
-
+    [Header("Button")]
     [SerializeField] private Button _pauseBackToGameButton;
     [SerializeField] private Button _pauseExitGameButton;
-
     [SerializeField] private Button _audioOnButton;
     [SerializeField] private Button _audioOffButton;
 
@@ -28,8 +28,7 @@ public class PauseScreen : MonoBehaviour
 
     private void Start()
     {
-        _pause = FindObjectOfType<Pause>();
-        _pause.OnPaused += Paused;
+        _pauseService.OnPaused += Paused;
         _audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
@@ -45,12 +44,17 @@ public class PauseScreen : MonoBehaviour
 
     private void OnDestroy()
     {
-        _pause.OnPaused -= Paused;
+        _pauseService.OnPaused -= Paused;
     }
 
     private void Paused(bool IsPaused)
     {
         _pauseScreen.SetActive(IsPaused);
+    }
+
+    private void OnPauseBackToGameButton()
+    {
+        _pauseService.TogglePause();
     }
 
     private void OnPauseExitGameButton()
@@ -60,9 +64,5 @@ public class PauseScreen : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-    private void OnPauseBackToGameButton()
-    {
-        _pause.TogglePause();
     }
 }
