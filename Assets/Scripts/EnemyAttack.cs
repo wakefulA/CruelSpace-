@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletSpawnPointTransform;
     [SerializeField] private float _currentTimeSpawn; //= 0.3f;
     [SerializeField] private float _startTimeSpawn; //= 3f;
 
-    
     private Transform _cachedTransform;
     private float _delayTimer;
 
@@ -19,28 +17,17 @@ public class EnemyAttack : MonoBehaviour
         _cachedTransform = transform;
     }
 
-    
     private void Start()
     {
         StartCoroutine(SpawnWeaponRoutine());
     }
 
-    // private bool CanAttack()
-    //{
-     //   return Input.GetButton("Fire1") && _delayTimer <= 0;
-   // }
-   
-   
-
     private void Attack()
     {
         // _playerAnimation.PlayShoot();
         LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _cachedTransform.rotation);
-        
-        
         _delayTimer = _currentTimeSpawn;
     }
-
 
     private IEnumerator SpawnWeaponRoutine()
     {
@@ -52,7 +39,5 @@ public class EnemyAttack : MonoBehaviour
 
             yield return new WaitForSeconds(_currentTimeSpawn);
         }
-
     }
-
 }

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PauseScreen : MonoBehaviour
 {
-    private AudioPlayer _audioPlayer;
+    private AudioService _audioService;
 
     [Header("Service")]
     [SerializeField] private Pause _pauseService;
@@ -29,17 +29,17 @@ public class PauseScreen : MonoBehaviour
     private void Start()
     {
         _pauseService.OnPaused += Paused;
-        _audioPlayer = FindObjectOfType<AudioPlayer>();
+        _audioService = FindObjectOfType<AudioService>();
     }
 
     private void AudioOnButton()
     {
-        _audioPlayer.soundOff = false;
+        _audioService.SoundOff = false;
     }
 
     private void AudioOffButton()
     {
-        _audioPlayer.soundOff = true;
+        _audioService.SoundOff = true;
     }
 
     private void OnDestroy()

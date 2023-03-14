@@ -5,7 +5,7 @@ public class GameUi : MonoBehaviour
 {
     private Pause _pause;
     private Statistics _statistics;
-    private AudioPlayer _audioPlayer;
+    private AudioService _audioService;
     private bool _isHudActive;
 
     [Header("Screen")]
@@ -35,7 +35,7 @@ public class GameUi : MonoBehaviour
     {
         // _pause = FindObjectOfType<Pause>();
         //_statistics = FindObjectOfType<Statistics>();
-        _audioPlayer = FindObjectOfType<AudioPlayer>();
+        _audioService = FindObjectOfType<AudioService>();
         Time.timeScale = 0;
     }
 

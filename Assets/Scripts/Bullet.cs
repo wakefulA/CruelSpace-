@@ -32,9 +32,6 @@ public class Bullet : MonoBehaviour
     {
         if (_isEnemyBullet && col.gameObject.CompareTag(Tag.Player))
         {
-            //if (col.CompareTag(Tag.Player))
-
-            //if (col.gameObject != null && col.gameObject.CompareTag("Player")) ;
             {
                 IHp ihp = col.gameObject.GetComponentInParent<IHp>();
 
@@ -44,10 +41,10 @@ public class Bullet : MonoBehaviour
                 }
             }
         }
+
         if (!_isEnemyBullet && col.CompareTag(Tag.Enemy))
-            
+
         {
-            // if (col.gameObject != null && col.gameObject.CompareTag("Enemy")) ;
             {
                 IHp ihp = col.gameObject.GetComponentInParent<IHp>();
 
@@ -61,19 +58,19 @@ public class Bullet : MonoBehaviour
 
     //private void OnEnable()
     //{
-      //  _rb.velocity = transform.up * _speed * -1;
-      //  _lifeTimeRoutine = LifeTimeTimer();
-       // StartCoroutine(_lifeTimeRoutine);
-   // }
+    //  _rb.velocity = transform.up * _speed * -1;
+    //  _lifeTimeRoutine = LifeTimeTimer();
+    // StartCoroutine(_lifeTimeRoutine);
+    // }
 
     //private void OnDisable()
     //{
-        //if (_lifeTimeRoutine != null)
-        //{
-          //  StopCoroutine(_lifeTimeRoutine);
-          //  _lifeTimeRoutine = null;
-        //}
-   // }
+    //if (_lifeTimeRoutine != null)
+    //{
+    //  StopCoroutine(_lifeTimeRoutine);
+    //  _lifeTimeRoutine = null;
+    //}
+    // }
 
     IEnumerator LifeTimeTimer()
     {

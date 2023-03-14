@@ -13,7 +13,7 @@ public class PlayerAttackBlue : MonoBehaviour
     [SerializeField] private Transform _bulletLeft;
     [SerializeField] private Transform _bulletCenter;
 
-    private AudioPlayer _audioPlayer;
+    //private AudioService _audioService;
 
     private Transform _cachedTransform;
     private float _delayTimer;
@@ -26,7 +26,7 @@ public class PlayerAttackBlue : MonoBehaviour
 
     private void Start()
     {
-        _audioPlayer = FindObjectOfType<AudioPlayer>();
+       // _audioService = FindObjectOfType<AudioService>();
         _specialForces = FindObjectOfType<SpecialForces>();
     }
 
@@ -67,7 +67,7 @@ public class PlayerAttackBlue : MonoBehaviour
 
         _delayTimer = _fireDelay;
         
-        _audioPlayer.AddTheSoundOfAGunshotClip();
+        AudioService.Instance.AddTheSoundOfAGunshotClip();
     }
 
     private void TickTimer()

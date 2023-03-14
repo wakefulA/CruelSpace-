@@ -6,7 +6,7 @@ public class GameOverScreen : MonoBehaviour
 {
     private Pause _pause;
     private Statistics _statistics;
-    private AudioPlayer _audioPlayer;
+    private AudioService _audioService;
     
     
     [SerializeField] private GameObject _gameOverLabel;
@@ -29,7 +29,7 @@ public class GameOverScreen : MonoBehaviour
         
         _pause = FindObjectOfType<Pause>();
         _statistics = FindObjectOfType<Statistics>();
-        _audioPlayer = FindObjectOfType<AudioPlayer>();
+        _audioService = FindObjectOfType<AudioService>();
     }
 
     public void GameOver()
